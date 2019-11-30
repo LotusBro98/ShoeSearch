@@ -1,7 +1,7 @@
+NET_SIZE = 128
+
 import tensorflow as tf
 import numpy as np
-
-NET_SIZE = 128
 
 
 def MobileResBlock(x, t=6):
@@ -25,7 +25,7 @@ def MobileResBlock(x, t=6):
 def downsample(x):
     # x = x + MobileResBlock(x)
     # x = x + MobileResBlock(x)
-    x = x + MobileResBlock(x)
+    # x = x + MobileResBlock(x)
 
     x = tf.keras.layers.Conv2D(int(x.shape[-1] * 2), (3, 3), strides=(2, 2), padding='same')(x)
     x = tf.keras.layers.Activation('tanh')(x)

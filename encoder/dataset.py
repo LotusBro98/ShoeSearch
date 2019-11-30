@@ -18,8 +18,8 @@ import matplotlib.pyplot as plt
 
 from encoder.model import NET_SIZE
 
-MIN_EXAMPLES = 8
-TRAIN_SIZE = 1000
+MIN_EXAMPLES = 16
+TRAIN_SIZE = 200
 
 """## Prepare Dataset"""
 
@@ -120,6 +120,8 @@ for key in keys:
   imgs = []
   urls = item_urls_selected[key]
   random.shuffle(urls)
+
+  print(urls)
 
   try:
     imgs = load_from_urls(urls)

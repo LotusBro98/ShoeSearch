@@ -63,10 +63,9 @@ try:
 except Exception as e:
     print("Failed to load weights")
 
-try:
-    for i in range(1000):
-        train_step(X_train[random.sample(range(len(X_train)), 2)], i)
-except KeyboardInterrupt as e:
-    pass
 
-model.save("encoder.h5")
+for i in range(1000):
+    train_step(X_train[random.sample(range(len(X_train)), 2)], i)
+    if i % 10 == 0:
+        model.save("encoder.h5")
+        print("Saved model")
